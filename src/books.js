@@ -4,7 +4,7 @@ const helper = require('./helper');
 async function getBooksBySubject (subject) {
   let data = [];
   try {
-    const response = await axios.get(`http://openlibrary.org/subjects/${subject}.json`);
+    const response = await axios.get(`https://openlibrary.org/subjects/${subject}.json`);
     data = response.data;
 
   } catch(err) {

@@ -44,7 +44,7 @@ describe('Books', () => {
       expect(titles).toEqual(expect.arrayContaining(['JavaScript: The Good Parts']));
 
       expect(getSpy).toHaveBeenCalled();
-      expect(getSpy).toHaveBeenCalledWith('http://openlibrary.org/subjects/javascript.json');
+      expect(getSpy).toHaveBeenCalledWith('https://openlibrary.org/subjects/javascript.json');
       expect(getSpy).toHaveBeenCalledWith(expect.stringContaining('openlibrary.org'));
 
       expect(pluckTitlesSpy).toHaveBeenCalledTimes(1);
@@ -57,7 +57,7 @@ describe('Books', () => {
 
       const noTitles = await books.getTitlesBySubject('asdfj');
       expect(getSpy).toHaveBeenCalledTimes(2);
-      expect(getSpy).toHaveBeenNthCalledWith(2, 'http://openlibrary.org/subjects/asdfj.json');
+      expect(getSpy).toHaveBeenNthCalledWith(2, 'https://openlibrary.org/subjects/asdfj.json');
       expect(getSpy).toHaveBeenLastCalledWith(expect.stringContaining('asdfj'));
       expect(noTitles.length).toBe(0);
     });
@@ -71,7 +71,7 @@ describe('Books', () => {
       expect(pluckTitlesSpy).toHaveBeenCalled();
       expect(titles.length).toBe(0);
       expect(getSpy).toHaveBeenCalled();
-      expect(getSpy).toHaveBeenCalledWith('http://openlibrary.org/subjects/javascript.json');
+      expect(getSpy).toHaveBeenCalledWith('https://openlibrary.org/subjects/javascript.json');
 
       
       expect(logSpy).toHaveBeenCalledTimes(1);
