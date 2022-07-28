@@ -17,7 +17,6 @@ async function getBooksBySubject (subject) {
 async function getTitlesBySubject (subject) {
   const data = await getBooksBySubject(subject);
   
-  //console.log('helper', helper);
   return helper.pluckTitles(data);
 }
 
